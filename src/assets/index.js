@@ -28,3 +28,4 @@ export { default as row61 } from './row61.jpg';
 export { default as row62 } from './row62.jpg';
 export { default as row63 } from './row63.jpg';
 export { default as row64 } from './row64.jpg';
+export { default as checkout } from './checkout.svg';

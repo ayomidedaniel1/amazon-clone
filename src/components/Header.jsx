@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu, ArrowDropDown, ShoppingCart } from '@mui/icons-material';
 import { Badge } from '@mui/material';
 import { flag } from '../assets';
+import { Link } from 'react-router-dom';
 
 import { HiOutlineLocationMarker, HiOutlineSearch } from 'react-icons/hi';
 
@@ -12,7 +13,9 @@ const Header = () => {
       {/* Upper Section of Header */}
 
       <div className="flex flex-row bg-[#131921] mt-0 py-0 md:py-1">
-        <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="img" className='h-7 md:h-8 w-7 sm:w-12 md:w-16 lg:w-24 object-contain md:mt-4 ml-1 mx-1 md:mx-5' />
+        <Link to='/'>
+          <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="img" className='h-7 md:h-8 w-7 sm:w-12 md:w-16 lg:w-24 object-contain md:mt-4 ml-1 mx-1 md:mx-5' />
+        </Link>
 
         <div className="flex flex-row items-center font-sans text-[0.3rem] md:text-xs text-white pr-1 md:pr-6">
           <HiOutlineLocationMarker className='w-2 md:w-5 h-2 md:h-5' />
@@ -45,11 +48,14 @@ const Header = () => {
             <span className="md:leading-3 md:-mt-1">Returns</span>
             <span className="md:leading-4 font-bold text-[0.35rem] md:text-[0.9rem]">& Order</span>
           </div>
-          <div className="items-center md:px-2 pr-1 md:pr-0">
-            <Badge className='cursor-pointer' badgeContent={1} color="warning">
-              <ShoppingCart fontSize="small" />
-            </Badge>
-          </div>
+
+          <Link to='/checkout'>
+            <div className="items-center md:px-2 pr-1 md:pr-0 cursor-pointer">
+              <Badge badgeContent={1} color="warning">
+                <ShoppingCart fontSize="small" />
+              </Badge>
+            </div>
+          </Link>
         </div>
       </div>
 

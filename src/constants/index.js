@@ -67,7 +67,7 @@ export const row3 = [
   },
   {
     img: row33,
-    title: 'Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons',
+    title: 'Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K Sensor, Lightweight, 6 Programmable Buttons',
     rating: '⭐⭐⭐⭐',
     price: '14.99'
   },
@@ -88,7 +88,7 @@ export const row3 = [
 export const row4 = [
   {
     img: row41,
-    title: "PRETTYGARDEN Women's Summer Casual Boho Dress Floral Print Ruffle Puff Sleeve High Waist Midi Beach Dresses",
+    title: "PRETTYGARDEN Women's Summer Casual Boho Dress Floral Print Ruffle High Waist Beach Dresses",
     rating: '⭐⭐⭐⭐',
     price: '40.99'
   },

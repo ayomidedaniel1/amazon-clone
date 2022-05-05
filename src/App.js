@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header, Home, Checkout } from './components';
+import { Header, Home, Checkout, Footer } from './components';
 
 function App () {
   return (
@@ -12,6 +12,7 @@ function App () {
         <Routes>
           <Route path='/checkout' exact element={<Checkout />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
