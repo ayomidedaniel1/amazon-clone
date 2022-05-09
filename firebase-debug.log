@@ -1,0 +1,21 @@
+[debug] [2022-05-09T23:48:59.695Z] ----------------------------------------------------------------------
+[debug] [2022-05-09T23:48:59.699Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-05-09T23:48:59.700Z] CLI Version:   10.8.0
+[debug] [2022-05-09T23:48:59.700Z] Platform:      win32
+[debug] [2022-05-09T23:48:59.700Z] Node Version:  v16.14.0
+[debug] [2022-05-09T23:48:59.702Z] Time:          Tue May 10 2022 00:48:59 GMT+0100 (West Africa Standard Time)
+[debug] [2022-05-09T23:48:59.702Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-09T23:48:59.867Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-09T23:48:59.868Z] > authorizing via signed-in user (ayomidedans@gmail.com)
+[debug] [2022-05-09T23:48:59.868Z] [iam] checking project cloneio for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-05-09T23:48:59.874Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cloneio:testIamPermissions [none]
+[debug] [2022-05-09T23:48:59.874Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cloneio:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-09T23:49:44.468Z] [iam] error while checking permissions, command may fail: FirebaseError: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/cloneio:testIamPermissions
+[debug] [2022-05-09T23:49:44.471Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cloneio [none]
+[debug] [2022-05-09T23:49:55.998Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/cloneio
+[debug] [2022-05-09T23:50:30.268Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects/cloneio
+    at RetryOperation._fn (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:240:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project cloneio. Please make sure the project exists and your account has permission to access it.
