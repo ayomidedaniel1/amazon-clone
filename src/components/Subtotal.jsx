@@ -4,7 +4,7 @@ import { useStateValue } from '../context/StateProvider';
 import { getBasketTotal } from '../context/Reducer';
 
 const Subtotal = () => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket }] = useStateValue();
 
   return (
     <>

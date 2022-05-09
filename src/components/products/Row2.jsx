@@ -5,8 +5,6 @@ import { useStateValue } from '../../context/StateProvider';
 const Row2 = ({ title, img, price, rating }) => {
   const [{ basket }, dispatch] = useStateValue();
 
-  console.log(basket);
-
   const addToBasket = () => {
     // dispatch the item into the data layer
     dispatch({

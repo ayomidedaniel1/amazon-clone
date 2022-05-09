@@ -6,9 +6,17 @@ import { Link } from 'react-router-dom';
 
 import { HiOutlineLocationMarker, HiOutlineSearch } from 'react-icons/hi';
 import { useStateValue } from '../context/StateProvider';
+import { logout } from '../firebase';
 
 const Header = () => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
+
+  const handleAuthentication = () => {
+    if (user) {
+      if (user) alert("You have successfully signed out of your Amazon account");
+      logout();
+    }
+  };
 
   return (
     <div className='flex flex-col bg-[#131921] w-full static top-0 z-[100] '>
@@ -45,10 +53,12 @@ const Header = () => {
             <ArrowDropDown fontSize="small" style={{ color: '#cccccc', marginLeft: '-3px', padding: '2px' }} />
           </div>
 
-          <Link to='/login'>
-            <div className="flex flex-col pr-[0.1rem] md:pr-5 cursor-pointer">
-              <span className="md:leading-3">Hello, Sign in</span>
-              <span className="md:leading-4 font-bold text-[0.4rem] md:text-[0.9rem] mt-0 md:mt-0">Accounts & Lists <ArrowDropDown fontSize="small" style={{ color: '#cccccc', marginLeft: '-7px', padding: '3px' }} /></span>
+          <Link to={!user && '/login'}>
+            <div onClick={handleAuthentication} className="flex flex-col pr-[0.1rem] md:pr-5 cursor-pointer">
+              <span className="md:leading-3">{user ? `Hello, ${user.email}` : 'Hello, Sign in'}</span>
+              <span className="md:leading-4 font-bold text-[0.4rem] md:text-[0.9rem] mt-0 md:mt-0">
+                {user ? 'Sign out' : `Accounts & Lists`}
+              </span>
             </div>
           </Link>
 
