@@ -1,8 +1,12 @@
 import React from 'react';
 import { checkout } from '../assets';
+import { useStateValue } from '../context/StateProvider';
+import CheckoutProduct from './CheckoutProduct';
 import Subtotal from './Subtotal';
 
 const Checkout = () => {
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <div className="flex flex-row justify-center font-sans my-3 md:my-6 lg:my-8">
 
@@ -25,6 +29,15 @@ const Checkout = () => {
               <button className="text-[0.35rem] md:text-sm lg:text-base text-[#0f1111] border-[#D5D9D9] bg-white hover:bg-slate-200 px-1 md:px-2 lg:px-4 py-[0.15rem] md:py-1 shadow-lg text-center rounded-sm md:rounded-md lg:rounded-lg">Sign up now</button>
             </div>
           </div>
+
+          {/* To be displayed if user is logged in */}
+          <div className="flex flex-col">
+            <h1 className="text-[0.55rem] md:text-lg lg:text-2xl font-bold text-[#0f1111] md:mb-1 mt-3">Your Shopping Basket</h1>
+            {basket.map((item, index) => (
+              <CheckoutProduct key={item.title + index} img={item.img} title={item.title} rating={item.rating} price={item.price} />
+            ))}
+          </div>
+
         </div>
 
         <div className="flex bg-white shadow-sm md:pl-3 lg:pl-5 md:pt-16 pb-4 mr-2 md:mr-3 lg:mr-4 text-white mb-3 md:mb-5" />

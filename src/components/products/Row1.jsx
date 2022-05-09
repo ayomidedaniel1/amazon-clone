@@ -1,7 +1,25 @@
 import React from 'react';
 import { Card, CardActions, CardContent, Button, Typography } from '@mui/material';
+import { useStateValue } from '../../context/StateProvider';
 
-const Row1 = ({ title, img, price, rating, addToBasket }) => {
+const Row1 = ({ title, img, price, rating }) => {
+  const [{ basket }, dispatch] = useStateValue();
+
+  console.log(basket);
+
+  const addToBasket = () => {
+    // dispatch the item into the data layer
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        img: img,
+        title: title,
+        rating: rating,
+        price: price
+      }
+    });
+  };
+
   return (
     <div className="flex flex-col px-2 my-2 mx-1 justify-center">
       <Card>

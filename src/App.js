@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header, Home, Checkout, Footer } from './components';
+import { Header, Home, Checkout, Footer, Login } from './components';
 
 function App () {
   return (
@@ -8,9 +8,8 @@ function App () {
         <Header />
         <Routes>
           <Route path='/' exact element={<Home />} />
-        </Routes>
-        <Routes>
           <Route path='/checkout' exact element={<Checkout />} />
+          <Route path='/login' exact element={<Login />} />
         </Routes>
         <Footer />
       </div>

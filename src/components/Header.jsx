@@ -5,8 +5,11 @@ import { flag } from '../assets';
 import { Link } from 'react-router-dom';
 
 import { HiOutlineLocationMarker, HiOutlineSearch } from 'react-icons/hi';
+import { useStateValue } from '../context/StateProvider';
 
 const Header = () => {
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <div className='flex flex-col bg-[#131921] w-full static top-0 z-[100] '>
 
@@ -36,14 +39,19 @@ const Header = () => {
         </div>
 
         <div className="flex flex-row items-center px-1 md:px-5 text-white font-sans text-[0.3rem] md:text-xs">
+
           <div className="flex md:flex-row mr-[0.1rem] md:mr-5 items-center">
             <img src={flag} alt="flag" className='h-1 md:h-4 w-2 md:w-5 cursor-pointer' />
             <ArrowDropDown fontSize="small" style={{ color: '#cccccc', marginLeft: '-3px', padding: '2px' }} />
           </div>
-          <div className="flex flex-col pr-[0.1rem] md:pr-5 cursor-pointer">
-            <span className="md:leading-3">Hello, Sign in</span>
-            <span className="md:leading-4 font-bold text-[0.4rem] md:text-[0.9rem] mt-0 md:mt-0">Accounts & Lists <ArrowDropDown fontSize="small" style={{ color: '#cccccc', marginLeft: '-7px', padding: '3px' }} /></span>
-          </div>
+
+          <Link to='/login'>
+            <div className="flex flex-col pr-[0.1rem] md:pr-5 cursor-pointer">
+              <span className="md:leading-3">Hello, Sign in</span>
+              <span className="md:leading-4 font-bold text-[0.4rem] md:text-[0.9rem] mt-0 md:mt-0">Accounts & Lists <ArrowDropDown fontSize="small" style={{ color: '#cccccc', marginLeft: '-7px', padding: '3px' }} /></span>
+            </div>
+          </Link>
+
           <div className="flex flex-col pr-[0.1rem] md:pr-5 cursor-pointer">
             <span className="md:leading-3 md:-mt-1">Returns</span>
             <span className="md:leading-4 font-bold text-[0.35rem] md:text-[0.9rem]">& Order</span>
@@ -51,7 +59,7 @@ const Header = () => {
 
           <Link to='/checkout'>
             <div className="items-center md:px-2 pr-1 md:pr-0 cursor-pointer">
-              <Badge badgeContent={1} color="warning">
+              <Badge badgeContent={basket?.length} color="warning">
                 <ShoppingCart fontSize="small" />
               </Badge>
             </div>
